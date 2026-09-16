@@ -3439,6 +3439,15 @@ function ghInitAppShell(){
   try{
     window.addEventListener("beforeinstallprompt", function(e){ e.preventDefault(); window.__installEv=e; var b0=document.getElementById("appPhoneBtn"); if(b0) b0.textContent="📲 安装到桌面"; });
   }catch(e){}
+  /* Service Worker：让页面具备「可安装」资格 + 断网可用 */
+  /* 只在 http(s) 下注册；本地双击 file:// 打开时跳过（浏览器不允许） */
+  try{
+    if("serviceWorker" in navigator && location.protocol.indexOf("http")===0){
+      window.addEventListener("load", function(){
+        navigator.serviceWorker.register("./sw.js").catch(function(){});
+      });
+    }
+  }catch(e){}
   /* 顶部安全区（iPhone 刘海 / 安卓状态栏） */
   try{ if(window.CSS&&CSS.supports&&CSS.supports("padding-top:env(safe-area-inset-top)")) document.documentElement.classList.add("safe-area"); }catch(e){}
 }
