@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "io.github.flyshark1.kaoyanworkbench",
+        "sha256_cert_fingerprints": ["A0:9C:DD:7D:A0:C5:FE:06:01:78:00:A4:AE:38:C8:7D:C2:FD:5E:6E:B5:3D:C9:F9:04:61:78:ED:4D:FC:43:76"]
+      }
+    }]
